@@ -22,8 +22,13 @@ def find_primes():
         if is_prime(count):
             prime_count += 1
             total_prime_count += 1
-            if prime_count % 1000 == 0:
+            # Calculate the number of digits in the prime number
+            num_digits = len(str(count))
+            if total_prime_count % 50000 == 0:
                 print(f"Found {total_prime_count} prime numbers")
+            if prime_count == 50000:
+                print(f"Prime number: {count}, Digits: {num_digits}")
+                prime_count = 0
             if time.time() - start_time >= 5:
                 end_time = time.time()
                 elapsed_time = end_time - start_time
